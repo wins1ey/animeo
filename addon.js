@@ -57,7 +57,7 @@ const builder = new addonBuilder({
 });
 
 builder.defineSubtitlesHandler(async (args) => {
-  const { token, enableSearch, preAddedOnly } = args.config;
+  const { token, enableSearch, preAddedOnly, adultPrivate } = args.config;
   let anilistId = "0";
   let animeName = "";
   let episode = "0";
@@ -88,6 +88,7 @@ builder.defineSubtitlesHandler(async (args) => {
         parseInt(anilistId),
         parseInt(episode),
         preAddedOnly,
+        adultPrivate,
         token
       );
     } catch (err) {

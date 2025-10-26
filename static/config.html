@@ -88,6 +88,9 @@
         <input type="checkbox" id="pre-added-only" name="pred-added" />
         <label for="pre-added" id="pre-added-only">Only update animes already on my list</label>
       </div>
+      <div>
+        <input type="checkbox" id="adult-private" name="adult-private" />
+        <label for="adult-private">Mark adult content as private</label>
     </div>
     <p>You need to login to use this addon.</p>
     <a id="install-button" class="button disabled">INSTALL</a>
@@ -111,8 +114,9 @@
     function getInstallURL() {
       const enableSearch = optionsContainer.querySelector('#enable-search').checked
       const preAddedOnly = optionsContainer.querySelector('#pre-added-only').checked
+      const adultPrivate = optionsContainer.querySelector('#adult-private').checked
 
-      const configString = JSON.stringify({ token, enableSearch, preAddedOnly })
+      const configString = JSON.stringify({ token, enableSearch, preAddedOnly, adultPrivate })
       const config = encodeURIComponent(configString)
 
       return `stremio://${domain}/${config}/manifest.json`
